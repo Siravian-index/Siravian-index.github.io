@@ -1,0 +1,29 @@
+
+
+const informacionUsuario = document.getElementById("informacion-usuario")
+
+function mostrarNombreUsuario() {
+  const usuarioLogeado = localStorage.getItem("usuarioLogeado")
+  if (usuarioLogeado) {
+    const p = document.createElement("p")
+    const buton = document.createElement("button")
+    buton.textContent = "cerrar sesion"
+    buton.id = "cerrar-sesion"
+    buton.addEventListener("click", () => {
+      informacionUsuario.remove()
+      localStorage.removeItem("usuarioLogeado")
+    })
+
+    setTimeout(() => {
+      buton.click()
+    }, 10000);
+    
+    const usuario = JSON.parse(usuarioLogeado)
+    p.textContent = `Hola ${usuario.nombre}, correo: ${usuario.correo}`
+    informacionUsuario.appendChild(p)
+    informacionUsuario.appendChild(buton)
+
+  }
+}
+
+mostrarNombreUsuario()
