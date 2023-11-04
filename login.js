@@ -1,4 +1,5 @@
 const form = document.getElementById("form")
+const p = document.getElementById("mensaje-error")
 
 
 function verificarUsuario(event) {
@@ -14,7 +15,11 @@ function verificarUsuario(event) {
     const usuarioValido = contraseña === usuario.contraseña
     if (usuarioValido) {
       localStorage.setItem("usuarioLogeado", usuarioRegistrado)
+    } else {
+    p.textContent = "El correo o la contraseña son incorrectos"
     }
+  } else {
+    p.textContent = "El usuario no está registrado"
   }
 
 }
