@@ -13,11 +13,6 @@ function mostrarNombreUsuario() {
       informacionUsuario.remove()
       localStorage.removeItem("usuarioLogeado")
     })
-
-    setTimeout(() => {
-      buton.click()
-    }, 10000);
-    
     const usuario = JSON.parse(usuarioLogeado)
     p.textContent = `Hola ${usuario.nombre}, correo: ${usuario.correo}`
     informacionUsuario.appendChild(p)
